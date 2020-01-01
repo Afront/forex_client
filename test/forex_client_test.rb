@@ -6,6 +6,7 @@ class ForexClientTest < Minitest::Test
   end
 
   def test_it_does_something_useful
+  	p "hi"
     assert true
   end
 end
