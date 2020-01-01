@@ -1,4 +1,5 @@
 require "test_helper"
+require "forex_client/api"
 
 class ForexClientTest < Minitest::Test
   def test_that_it_has_a_version_number
@@ -6,7 +7,10 @@ class ForexClientTest < Minitest::Test
   end
 
   def test_it_does_something_useful
-  	p "hi"
     assert true
+  end
+
+  def test_to_see_if_api_can_generate_a_url_with_the_right_format
+    assert API::get_url(function: "CURRENCY_EXCHANGE_RATE", from_currency: "USD", to_currency: "TWD") == 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=TWD&apikey=' + API::API_KEY
   end
 end
