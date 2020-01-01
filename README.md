@@ -1,28 +1,16 @@
 # ForexClient
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/forex_client`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A forex client that uses the Alpha Vantage API (part of the [Code Everyday 2020](https://github.com/Afront/Code-Everyday-2020 "GitHub Repo") project)
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'forex_client'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
+Install it yourself as:
 
     $ gem install forex_client
 
 ## Usage
 
-TODO: Write usage instructions here
+*Still in the works*
 
 ## Development
 
