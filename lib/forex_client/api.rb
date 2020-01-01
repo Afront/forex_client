@@ -1,3 +1,4 @@
+require 'Faraday'
 module API
 	API_KEY = ENV['ALPHA_VANTAGE_API_KEY'].to_s
   CallStruct = Struct.new(:function, :from_currency, :to_currency, :from_symbol, :to_symbol, :interval, :outputsize, :datatype) do
@@ -15,10 +16,11 @@ module API
   end
 
   module_function 
-	def get_url(function:, from_currency: false, to_currency: false, from_symbol: false, to_symbol: false, interval: false, outputsize: false, datatype: false)
-    call = CallStruct.new(function, from_currency, to_currency, from_symbol, to_symbol, interval, outputsize, datatype)
-    call.generate_url
-	end
+
+  def get_json(function:, from_currency: false, to_currency: false, from_symbol: false, to_symbol: false, interval: false, outputsize: false, datatype: false)
+    json_result = Faraday.get CallStruct.new(function, from_currency, to_currency, from_symbol, to_symbol, interval, outputsize, datatype).generate_url
+    puts json_result.body
+  end
 
 end
 
