@@ -15,13 +15,13 @@ Gem::Specification.new do |spec|
 	spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
 	spec.metadata = {
-	  "bug_tracker_uri"   => "https://github.com/Afront/Code-Everyday-2020/issues",
-	  "changelog_uri"     => "https://github.com/Afront/Code-Everyday-2020/CHANGELOG.md",
+	  "bug_tracker_uri"   => "https://github.com/Afront/forex_client/issues",
+	  "changelog_uri"     => "https://github.com/Afront/forex_client/CHANGELOG.md",
 #	  "documentation_uri" => "https://code-eveyday.afront.me/gems/forex_client/0.0.1",
 	  "homepage_uri"      => spec.homepage,
 #	  "mailing_list_uri"  => "https://code-eveyday.afront.me/forex_client",
-	  "source_code_uri"   => "https://github.com/Afront/Code-Everyday-2020",
-	  "wiki_uri"          => "https://github.com/Afront/Code-Everyday-2020/wiki"
+	  "source_code_uri"   => "https://github.com/Afront/forex_client",
+	  "wiki_uri"          => "https://github.com/Afront/forex_client/wiki"
 	}
 
 
