@@ -14,7 +14,7 @@ module API
         arr_err << 'only from_currency and to_currency should be set' if from_symbol || to_symbol || interval || outputsize || datatype
         arr_err << 'from_currency and to_currency are not set' unless from_currency && to_currency
         arr_err << 'from_currency is not set' unless from_currency
-        arr_err << 'to_currency is not set' unless from_currency && to_currency
+        arr_err << 'to_currency is not set' unless to_currency
         raise ArgumentError, arr_err.join('\n') unless arr_err.empty?
       when 'FX_INTRADAY'
 
