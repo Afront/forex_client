@@ -2,7 +2,9 @@ require 'Faraday'
 require 'JSON'
 
 module API
-	API_KEY = ENV['ALPHA_VANTAGE_API_KEY'].to_s
+  raise IOError, 'ALPHA_VANTAGE_API_KEY is not set as an environmental variable' if ENV['ALPHA_VANTAGE_API_KEY'].nil?
+#  raise 
+  API_KEY = ENV['ALPHA_VANTAGE_API_KEY'].to_s
   CallStruct = Struct.new(:function, :from_currency, :to_currency, :from_symbol, :to_symbol, :interval, :outputsize, :datatype) do
     def validate_data
 
