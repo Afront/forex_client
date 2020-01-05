@@ -1,4 +1,4 @@
-# ForexClient
+# ForexClient (WIP)
 
 A forex client that uses the Alpha Vantage API (part of the [Code Everyday 2020](https://github.com/Afront/Code-Everyday-2020 "GitHub Repo") project)
 
