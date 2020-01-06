@@ -1,10 +1,7 @@
 require 'Faraday'
 require 'JSON'
 
-
 module API
-
-
   raise IOError, 'ALPHA_VANTAGE_API_KEY is not set as an environmental variable' if ENV['ALPHA_VANTAGE_API_KEY'].nil?
   API_KEY = ENV['ALPHA_VANTAGE_API_KEY'].to_s
   CallStruct = Struct.new(:function, :from_currency, :to_currency, :from_symbol, :to_symbol, :interval, :outputsize, :datatype) do
@@ -26,7 +23,6 @@ module API
       end
 
       raise ArgumentError, arr_err.join('\n') unless arr_err.empty? #fix newline
-
     end
 
     def generate_url
@@ -87,7 +83,7 @@ module API
   end
 end
 
-
+=begin
 require 'benchmark'
 n = 10000
 Benchmark.bm(7) do |x|
@@ -96,3 +92,4 @@ Benchmark.bm(7) do |x|
   x.report("Generating struct instance")   {API::CallStruct.new(function = "CURRENCY_EXCHANGE_RATE", from_currency = "USD", to_currency = "TWD")}
   x.report("Generating class instance") {API::CallStructClass.new(function: "CURRENCY_EXCHANGE_RATE", from_currency: "USD", to_currency: "TWD").generate_url}
 end
+=end
