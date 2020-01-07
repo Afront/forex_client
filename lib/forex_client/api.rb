@@ -5,7 +5,7 @@ module API
   raise IOError, 'ALPHA_VANTAGE_API_KEY is not set as an environmental variable' if ENV['ALPHA_VANTAGE_API_KEY'].nil?
   API_KEY = ENV['ALPHA_VANTAGE_API_KEY'].to_s
   CallStruct = Struct.new(:function, :from_currency, :to_currency, :from_symbol, :to_symbol, :interval, :outputsize, :datatype) do
-    def validate_data
+    def get_valid_arr #previously validate_data
       parameters = {"CURRENCY_EXCHANGE_RATE"=> {:required => [function, from_currency, to_currency], :optional => []}, 
         "FX_INTRADAY"=> {:required => [function, from_symbol, to_symbol, interval], :optional => [outputsize, datatype]},  
         "FX_DAILY"=> {:required => [function, from_symbol, to_symbol], :optional => [outputsize, datatype]},
@@ -17,23 +17,21 @@ module API
       optional_parameters = parameters[function][:optional]
 
       arr_err = []
+      arr_valid = []
       self.each_pair do |parameter, value|
         p [parameter, value]
         arr_err << "#{parameter} is not set" if !value && (required_parameters.include? value) #need to fix name choices soon
         arr_err << "#{parameter} should not be set for #{function}" unless (required_parameters+optional_parameters).include?(value) || !value
+        arr_valid << "#{parameter}=#{value}" if value
         break unless arr_err.empty?
       end
 
       raise ArgumentError, arr_err.join('\n') unless arr_err.empty? #fix newline
+      arr_valid
     end
 
     def generate_url
-      validate_data
-      arr = []
-      self.each_pair do |parameter, value|
-        arr << "#{parameter}=#{value}" if value
-      end
-      'https://www.alphavantage.co/query?' + arr.join('&') + '&apikey=' + API_KEY
+      'https://www.alphavantage.co/query?' + get_valid_arr.join('&') + '&apikey=' + API_KEY
     end
   end
 
