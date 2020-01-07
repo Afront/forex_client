@@ -15,40 +15,10 @@ class ForexClientTest < Minitest::Test
   end
 
   def test_to_see_if_api_can_generate_a_json_correctly
-    assert (API::get_json @callstruct).class == String 
+    assert (API::get_json @callstruct).class == Hash 
   end
 
   def test_something
     API::test(function: "CURRENCY_EXCHANGE_RATE", from_currency: "USD", to_currency: "TWD")
-  end
-end
-
-describe ForexClient do
-  before do
-    @callstruct =  API::CallStruct.new(function = "CURRENCY_EXCHANGE_RATE", from_currency = "USD", to_currency = "TWD")
-  end
-
-=begin
-  describe CallStruct do
-    describe "#get_url" do
-      it "generates a url" do
-#        callstruct.get_url.match 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=TWD&apikey=' + API::API_KEY
-      end
-
-      it "assumes API_KEY exists" do
-        refute_nil API::API_KEY
-      end
-
-      it "only includes truthy values" do
-        
-      end
-
-    end
-    
-  end
-=end
-  
-  describe "#get_json" do
-    
   end
 end
