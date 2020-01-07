@@ -68,14 +68,14 @@ module API
     json_result.body
   end
 
-  def parse_json json_body
-    p json_body.class
-    p JSON.parse json_body
+  def print_json json_body
+    json =  JSON.parse json_body
+    json.first[1].each {|key, value| puts "#{key}: #{value}"}
   end
 
   def test(function:, from_currency: false, to_currency: false, from_symbol: false, to_symbol: false, interval: false, outputsize: false, datatype: false)
     call = CallStruct.new(function, from_currency, to_currency, from_symbol, to_symbol, interval, outputsize, datatype)
-    parse_json(get_json(call))
+    print_json(get_json(call))
   end
 end
 
