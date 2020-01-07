@@ -11,7 +11,7 @@ class ForexClientTest < Minitest::Test
   end
 
   def test_to_see_if_api_can_generate_a_url_with_the_right_format
-    assert @callstruct.generate_url == 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=TWD&apikey=' + API::API_KEY
+    assert @callstruct.get_url == 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=TWD&apikey=' + API::API_KEY
   end
 
   def test_to_see_if_api_can_generate_a_json_correctly
@@ -19,7 +19,7 @@ class ForexClientTest < Minitest::Test
   end
 
   def test_something
-#    API::test(function: "CURRENCY_EXCHANGE_RATE", from_currency: "USD", to_currency: "TWD")
+    API::test(function: "CURRENCY_EXCHANGE_RATE", from_currency: "USD", to_currency: "TWD")
   end
 end
 
@@ -30,9 +30,9 @@ describe ForexClient do
 
 =begin
   describe CallStruct do
-    describe "#generate_url" do
+    describe "#get_url" do
       it "generates a url" do
-#        callstruct.generate_url.match 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=TWD&apikey=' + API::API_KEY
+#        callstruct.get_url.match 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=TWD&apikey=' + API::API_KEY
       end
 
       it "assumes API_KEY exists" do
