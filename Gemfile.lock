@@ -16,9 +16,10 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    rake (12.3.2)
+    rake (12.3.3)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
@@ -28,7 +29,7 @@ DEPENDENCIES
   json
   minitest (~> 5.0)
   pry
-  rake (~> 12.0)
+  rake (~> 12.3)
 
 BUNDLED WITH
    2.1.2
